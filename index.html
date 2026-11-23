@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noimageindex, noai, noimageai">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Abalone Queen — handcrafted jewelry by Deb Threlkel</title>
+<meta name="description" content="Inspired by nature, Abalone Queen is a unique line of jewelry handcrafted by Deb Threlkel on the Mendocino coast.">
+<meta property="og:title" content="Abalone Queen">
+<meta property="og:description" content="Handcrafted jewelry by Deb Threlkel.">
+<meta property="og:image" content="assets/intro-poster.jpg">
+<meta name="theme-color" content="#03070a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400;1,6..96,500&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=51">
+</head>
+<body class="gated">
+
+<!-- ENTRY: a film fills the screen, and each visit shows a different one than last time.
+     The films are assets/intro-1.mp4, intro-2.mp4 … each with a poster picture intro-1-poster.jpg …
+     To add one, save the next number and raise INTRO_FILMS. To see a certain one: add ?film=2 to the address. -->
+<div id="gate">
+  <video id="introVideo" autoplay muted loop playsinline preload="auto" aria-label="Abalone Queen opening film"></video>
+  <script>
+    (function () {
+      var INTRO_FILMS = 1, last = 0;
+      try { last = +localStorage.getItem("aq-film") || 0; } catch (e) {}
+      var asked = +new URLSearchParams(location.search).get("film"), pick;
+      if (asked >= 1 && asked <= INTRO_FILMS) pick = asked;
+      else { do { pick = 1 + Math.floor(Math.random() * INTRO_FILMS); } while (INTRO_FILMS > 1 && pick === last); }
+      try { localStorage.setItem("aq-film", pick); } catch (e) {}
+      var v = document.getElementById("introVideo");
+      v.poster = "assets/intro-" + pick + "-poster.jpg"; v.src = "assets/intro-" + pick + ".mp4";
+    })();
+  </script>
+  <p class="gate-title mark"><span>Abalone</span><em>Queen</em></p>
+  <div class="gate-foot">
+    <button id="enter" class="enter">Enter</button>
+    <button id="enterQuiet" class="quiet">Enter without sound</button>
+  </div>
+</div>
+
+<header id="top">
+  <a class="brand" href="#hero">Abalone <em>Queen</em></a>
+  <nav aria-label="Sections">
+    <a href="#runway">Selected</a>
+    <a href="#jewelry">Collection</a>
+    <a href="#process">Process</a>
+    <a href="#galleries">Galleries</a>
+    <a href="#about">About</a>
+    <a href="#order">Ordering</a>
+  </nav>
+  <button id="sound" class="soundbtn" aria-pressed="false"><i></i><i></i><i></i><i></i><span>Sound off</span></button>
+</header>
+
+<main>
+<!-- TITLE: living mother-of-pearl, drawn by the page and lit by the pointer -->
+<section id="hero">
+  <canvas id="nacre" aria-hidden="true"></canvas>
+  <div class="hero-words">
+    <h1 class="mark"><span>Abalone</span><em>Queen</em></h1>
+    <p class="by">Handcrafted jewelry by Deb Threlkel<br>Gualala, California</p>
+  </div>
+  <a class="scrollcue" href="#runway" aria-label="Scroll to the selected pieces"><span></span></a>
+</section>
+
+<!-- RUNWAY: twelve pieces, one to a screen. Chosen in data.js (RUNWAY). -->
+<section id="runway" aria-label="Selected pieces"></section>
+
+<section id="jewelry">
+  <div class="head">
+    <h2>The <em>collection</em></h2>
+    <p>Each piece is one of a kind. Click on a piece to see it on Etsy.</p>
+    <div class="filters" role="group" aria-label="Show">
+      <button class="chip on" data-f="all">All</button>
+      <button class="chip" data-f="Necklace">Necklaces</button>
+      <button class="chip" data-f="Earrings">Earrings</button>
+    </div>
+  </div>
+  <div id="grid" class="grid"></div>
+</section>
+
+<section id="process" class="band">
+  <video class="slow" autoplay muted loop playsinline preload="metadata" poster="assets/hero.jpg?2" src="assets/hero.mp4?2" aria-hidden="true"></video>
+  <div class="band-words">
+    <h2><em>Process</em></h2>
+    <p>My one of a kind creations are the result of dedicated beach combing, sorting and organizing the materials that I find, wire wrapping, and searching for unusual gemstones from around the world.</p>
+  </div>
+</section>
+
+<section id="galleries" class="cols">
+  <h2><em>Galleries</em></h2>
+  <div>
+    <p class="big">You can find my jewelry in the following fine stores.</p>
+    <ul class="rows">
+      <li><strong>Blossom</strong><span>211 Main St, Point Arena, CA</span><a href="tel:+17078823616">707-882-3616</a></li>
+      <li><strong><a href="http://www.pointarenalighthouse.com" target="_blank" rel="noopener">Point Arena Lighthouse</a></strong><span>45500 Lighthouse Rd, Point Arena, CA</span><a href="tel:+17078826706">707-882-6706</a></li>
+      <li><strong>Discovery Gallery</strong><span>39140 S Highway 1, Gualala, CA</span><a href="tel:+17078841900">707-884-1900</a></li>
+      <li><strong>Dolphin Gallery</strong><span>39225 S Highway 1, Gualala, CA</span><a href="tel:+17078843896">707-884-3896</a></li>
+      <li><strong><a href="http://www.galleryofgreatthingshawaii.com" target="_blank" rel="noopener">The Gallery of Great Things</a></strong><span>65-1279 Kawaihae Rd #100, Waimea, HI</span><a href="tel:+18088857706">808-885-7706</a></li>
+      <li><strong>Kohala Coast Fine Art</strong><span>69-250 Waikoloa Beach Dr, Waikoloa, HI</span><a href="tel:+18088864242">808-886-4242</a></li>
+    </ul>
+  </div>
+</section>
+
+<section id="events" class="cols">
+  <h2><em>Events</em></h2>
+  <ul class="rows">
+    <li><strong>Made With Love</strong><span>Deborah Threlkel / Abalone Queen and Sara Costello / Costello Rose Designs. New jewelry collections at the Coast Highway Artists Collective, Point Arena.</span><time>November 5–28, 2020</time></li>
+    <li><strong>Marine Transformations</strong><span>New works by Deborah Threlkel and Brandy Gale at the Dolphin Gallery in Gualala. Music by Henry Kaiser.</span><time>October 7, 2017</time></li>
+    <li><strong>Coast Pop-Up Gallery</strong><span>Point Arena Pier, below the Chowder House Restaurant.</span><time>July 19–20, 2014</time></li>
+  </ul>
+</section>
+
+<section id="about" class="cols">
+  <h2><em>About</em></h2>
+  <div class="big">
+    <p class="lead">Welcome! Abalone Queen is unique one-of-a-kind jewelry influenced by qualities of structure, color, shape, texture, size and iridescence.</p>
+    <p>Continually inspired to turn treasures polished smooth by the ocean into wearable works of art, I source my shells by beach combing the Mendocino and Sonoma Coasts. Each piece of jewelry is individually created around the shells being used.</p>
+    <p>Designed to last, I gather, sort, drill and wire-wrap abalone and shells combined with beach glass, gem stones and 14k gold, 14k gold fill and sterling silver wire. With no two pieces alike, the result is like a small wearable sculpture.</p>
+    <p>I love the process that brings me to a completed necklace or pair of earrings, knowing that Abalone Queen jewelry will feel as if you are wearing the ocean.</p>
+    <p class="sign">Deb, the Abalone Queen</p>
+  </div>
+</section>
+
+<section id="order">
+  <h2>Ordering</h2>
+  <p class="big">Each of my necklaces and earrings are one of a kind. Please browse my Etsy shop to see what’s currently available online. Feel free to contact me for more choices. I’m always creating new pieces, and I do take custom orders.</p>
+  <p><a class="btn etsy" target="_blank" rel="noopener">Visit the Etsy shop</a></p>
+  <address id="contact">
+    <strong>Deborah Threlkel</strong>
+    <a href="mailto:debthrelkel@yahoo.com">debthrelkel@yahoo.com</a>
+    <a href="tel:+17078849289">(707) 884-9289</a>
+  </address>
+</section>
+</main>
+
+<footer>
+  <p class="foot-mark mark"><span>Abalone</span><em>Queen</em></p>
+  <p>© <span id="yr"></span> Deb Threlkel. Gualala, California.</p>
+</footer>
+
+
+
+<!-- makes the lettering move as if seen through water -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="water" x="-10%" y="-20%" width="120%" height="140%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.008 0.022" numOctaves="2" seed="4" result="n">
+      <animate attributeName="baseFrequency" dur="16s" values="0.008 0.022;0.014 0.016;0.008 0.022" repeatCount="indefinite"/>
+    </feTurbulence>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="16" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+</svg>
+
+<div class="grain" aria-hidden="true"></div>
+
+<script src="data.js?v=40"></script>
+<script src="app.js?v=50"></script>
+</body>
+</html>
